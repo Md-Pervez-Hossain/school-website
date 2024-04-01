@@ -7,14 +7,15 @@ import Admission from '@/components/AdmissionAndShift/Admission'
 import Shifts from '@/components/Shifts/Shifts'
 import Notice from '@/components/Notice/Notice'
 import Container from '@/components/ui/Container'
-import { fetchPhotosData } from '@/lib/fetchData'
+import { fetchChairmanSection, fetchPhotosData } from '@/lib/fetchData'
 export default async function Home() {
 
   const photos = await fetchPhotosData()
+  const chairmanData = await fetchChairmanSection()
   return (
     <main>
       <Container>
-        <Chairman />
+        <Chairman chairmanData={chairmanData} />
         <States />
         <Information />
         <Notice />

@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import ChairmanPic from "../../../assets/chairman.png";
@@ -6,7 +7,8 @@ import Paragraph from "@/components/ui/Paragraph";
 import Container from "@/components/ui/Container";
 import Heading from "@/components/ui/Heading";
 
-const ChairmanMessage = () => {
+const ChairmanMessage = ({ chairmanData }) => {
+  console.log(chairmanData);
   return (
     <Container>
       <div className=" lg:mt-16 mt-5 grid lg:grid-cols-2 lg:gap-10 gap-5 items-center ">

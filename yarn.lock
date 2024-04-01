@@ -1484,6 +1484,13 @@ hasown@^2.0.0:
   dependencies:
     function-bind "^1.1.2"
 
+hooks-crafter@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.npmjs.org/hooks-crafter/-/hooks-crafter-1.0.4.tgz"
+  integrity sha512-C7tFSvE2dswTZT7P11w4oXxB1WT9+D2pJ6175POPsgEXWnHRjNODI8NKlWn9glPR9ds7RwAZlA2KTNRw34eh4w==
+  dependencies:
+    prop-types "^15.8.1"
+
 ignore@^5.2.0:
   version "5.2.4"
   resolved "https://registry.npmjs.org/ignore/-/ignore-5.2.4.tgz"
