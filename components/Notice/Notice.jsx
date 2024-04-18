@@ -1,9 +1,9 @@
 import React from "react";
 import NoticeBoard from "./NoticeBoard/NoticeBoard";
-const Notice = () => {
+const Notice = ({ notice }) => {
   return (
     <div>
-      <NoticeBoard />
+      <NoticeBoard notice={notice} />
     </div>
   );
 };

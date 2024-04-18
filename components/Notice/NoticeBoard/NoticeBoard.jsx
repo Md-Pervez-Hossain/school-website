@@ -1,10 +1,12 @@
+"use client";
 import React from "react";
 import noticePic from "../../../assets/noticePic.png";
 import Image from "next/image";
 import Slider from "./Slider";
 import Title from "@/components/ui/Title";
 
-const NoticeBoard = () => {
+const NoticeBoard = ({ notice }) => {
+  console.log(notice);
   return (
     <div
       id="NoticeBoard"
@@ -22,7 +24,7 @@ const NoticeBoard = () => {
         </div>
       </div>
       <div className=" col-span-3 lg:col-span-2 ">
-        <Slider />
+        <Slider notice={notice?.data} />
       </div>
     </div>
   );

@@ -1,7 +1,8 @@
+"use client";
 import React from "react";
 import Paragraph from "../ui/Paragraph";
 
-const Contact = () => {
+const Contact = ({ contactInfo }) => {
   return (
     <div>
       <h2 className="text-[18px] font-[600] mb-3 text-center lg:flex ">
@@ -23,12 +24,16 @@ const Contact = () => {
           />
         </svg>
         <div>
-          <Paragraph className="text-center lg:text-start text-grayText">
-            +880 1700000000
-          </Paragraph>
-          <Paragraph className="text-center lg:text-start text-grayText">
-            +880 01707-388237
-          </Paragraph>
+          {contactInfo?.phone_numbers?.map((phone, index) => {
+            return (
+              <Paragraph
+                key={index}
+                className="text-center lg:text-start text-grayText"
+              >
+                {phone?.phone}
+              </Paragraph>
+            );
+          })}
         </div>
       </div>
       <div className="flex flex-col lg:flex-row items-center lg:gap-5 gap-3  lg:mb-5  mb-3 justify-center lg:justify-start  ">
@@ -55,12 +60,16 @@ const Contact = () => {
           />
         </svg>
         <div>
-          <Paragraph className="text-center lg:text-start text-grayText">
-            mhsc926@gmail.com
-          </Paragraph>
-          <Paragraph className="text-center lg:text-start text-grayText">
-            support@eduadmin.com
-          </Paragraph>
+          {contactInfo?.emails?.map((email, index) => {
+            return (
+              <Paragraph
+                key={index}
+                className="text-center lg:text-start text-grayText"
+              >
+                {email?.email}
+              </Paragraph>
+            );
+          })}
         </div>
       </div>
       <div className="flex flex-col lg:flex-row items-center  lg:gap-5 gap-3 lg:mb-5  justify-center lg:justify-start">
@@ -82,10 +91,7 @@ const Contact = () => {
         </svg>
         <div>
           <Paragraph className="text-center lg:text-start text-grayText">
-            Kanchpur , Narayanganj
-          </Paragraph>
-          <Paragraph className="text-center lg:text-start text-grayText">
-            Dhaka, Bangladesh
+            {contactInfo?.location}
           </Paragraph>
         </div>
       </div>

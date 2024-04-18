@@ -1,20 +1,26 @@
 import React from "react";
-import SchoolMorningShift from "./SchoolSifts/SchoolMorningShift";
-import SchollEveningShift from "./SchoolSifts/SchollEveningShift";
+
 import UpComingEvents from "./UpComingEvents/UpComingEvents";
 import Calender from "./Calender/Calender";
 import Container from "../ui/Container";
+import { fetchEventsSection, fetchShiftSection } from "@/lib/fetchData";
+import Title from "../ui/Title";
+import Paragraph from "../ui/Paragraph";
+import Image from "next/image";
+import SchoolSfifts from "./SchoolSifts/SchoolSfifts";
 
-const Academic = () => {
+const Academic = async () => {
+  const shiftsInfo = await fetchShiftSection();
+
+  const eventsInfo = await fetchEventsSection();
   return (
     <>
       <Container>
         <div className="lg:my-16 my-5">
-          <SchoolMorningShift />
-          <SchollEveningShift />
+          <SchoolSfifts shiftsInfo={shiftsInfo} />
         </div>
         <Calender />
-        <UpComingEvents />
+        <UpComingEvents eventsInfo={eventsInfo} />
       </Container>
     </>
   );
