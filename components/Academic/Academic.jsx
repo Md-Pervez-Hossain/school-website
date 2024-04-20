@@ -11,15 +11,14 @@ import SchoolSfifts from "./SchoolSifts/SchoolSfifts";
 
 const Academic = async () => {
   const shiftsInfo = await fetchShiftSection();
-
   const eventsInfo = await fetchEventsSection();
   return (
     <>
       <Container>
-        <div className="lg:my-16 my-5">
+        <div className="lg:my-10 my-5">
           <SchoolSfifts shiftsInfo={shiftsInfo} />
         </div>
-        <Calender />
+        {/* <Calender /> */}
         <UpComingEvents eventsInfo={eventsInfo} />
       </Container>
     </>

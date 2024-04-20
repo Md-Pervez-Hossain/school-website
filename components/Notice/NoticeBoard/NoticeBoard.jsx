@@ -6,7 +6,6 @@ import Slider from "./Slider";
 import Title from "@/components/ui/Title";
 
 const NoticeBoard = ({ notice }) => {
-  console.log(notice);
   return (
     <div
       id="NoticeBoard"

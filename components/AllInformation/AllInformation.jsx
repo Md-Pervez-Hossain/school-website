@@ -1,23 +1,17 @@
 "use client";
-import Image from "next/image";
 import React, { useState } from "react";
-import AcademicInfo from "../../assets/academic-info.png";
-import AdmissionInfo from "../../assets/admission-info.png";
-import Rules from "../../assets/rules.png";
-import ClassSixSyllabusPic from "../../assets/teacher.svg";
-import PrimaryButton from "../Share/Button/PrimaryButton";
 import Title from "../ui/Title";
 import Heading from "../ui/Heading";
-import { useModal } from "@/hooks/useModal";
+import PrimaryButton from "../Share/Button/PrimaryButton";
 import Modal from "../Share/Modal/Modal";
-import InformationDetails from "./InformationDetails";
-import Link from "next/link";
+import AllInformationDetails from "./AllInformationDetails";
+import Container from "../ui/Container";
 
-const Information = ({ information }) => {
+const AllInformation = ({ information }) => {
   const [detailsModalId, setDetailsModalId] = useState(null);
 
   return (
-    <div className="lg:my-16 my-5 ">
+    <Container className="lg:my-16 my-5 ">
       <Title className="text-center">Information</Title>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 ">
         {information?.data?.length &&
@@ -38,13 +32,6 @@ const Information = ({ information }) => {
             );
           })}
       </div>
-      <div className="flex  items-center justify-center mt-8">
-        <Link href="/all-information">
-          <button className="border border-gray-200 px-4 py-2 rounded text-[#999]">
-            View All
-          </button>
-        </Link>
-      </div>
 
       {detailsModalId && (
         <Modal
@@ -52,14 +39,14 @@ const Information = ({ information }) => {
           closeModal={() => setDetailsModalId(null)}
           title="Information Details"
         >
-          <InformationDetails
+          <AllInformationDetails
             data={detailsModalId}
             closeModal={() => setDetailsModalId(null)}
           />
         </Modal>
       )}
-    </div>
+    </Container>
   );
 };
 
-export default Information;
+export default AllInformation;

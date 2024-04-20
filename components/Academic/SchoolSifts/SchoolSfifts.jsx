@@ -14,7 +14,7 @@ const SchoolSfifts = ({ shiftsInfo }) => {
           return (
             <div
               key={shift?.id}
-              className=" grid lg:grid-cols-2 gap-10 items-center justify-between  lg:py-16 py-4 lg:px-8 px-2 rounded-lg "
+              className=" grid lg:grid-cols-2 gap-10 items-center justify-between  lg:py-16 py-4  px-2 rounded-lg "
             >
               <div className={`${isLeftAligned ? "lg:order-1" : "lg:order-2"}`}>
                 <Title>{shift?.title}</Title>

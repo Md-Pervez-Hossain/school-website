@@ -7,19 +7,21 @@ import Admission from '@/components/AdmissionAndShift/Admission'
 import Shifts from '@/components/Shifts/Shifts'
 import Notice from '@/components/Notice/Notice'
 import Container from '@/components/ui/Container'
-import { fetchChairmanSection, fetchNoticeInfo, fetchPhotosData, fetchShiftSection } from '@/lib/fetchData'
+import { fetchChairmanSection, fetchInformation, fetchNoticeInfo, fetchPhotosData, fetchShiftSection } from '@/lib/fetchData'
 export default async function Home() {
   const photos = await fetchPhotosData()
   const chairmanData = await fetchChairmanSection()
   const shiftsInfo = await fetchShiftSection()
   const notice = await fetchNoticeInfo()
 
+  const information = await fetchInformation()
+
   return (
     <main>
       <Container>
         <Chairman chairmanData={chairmanData} />
         <States />
-        <Information />
+        <Information information={information} />
         <Notice notice={notice} />
         <Admission />
         <Shifts shiftsInfo={shiftsInfo} />
