@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.h-\[450px\] {
+  height: 400px !important;
+}
+
 .container-2 {
   @apply lg:w-10/12 w-full mx-auto px-4 lg:px-8;
 }

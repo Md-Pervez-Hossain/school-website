@@ -1,12 +1,11 @@
 "use client";
-import React, { useRef, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import React from "react";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "./Slider.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import { Navigation } from "swiper/modules";
-import Image from "next/image";
+
 const Slider = ({ notice }) => {
   const sliderArray = [
     {
@@ -34,25 +33,6 @@ const Slider = ({ notice }) => {
 
   return (
     <div className=" z-0">
-      {/* <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-        {sliderArray?.map((slide) => {
-          return (
-            <>
-              <SwiperSlide>
-                <div className="text-center lg:px-16 flex flex-col justify-center items-center bg-white rounded-lg shadow-md lg:py-24 py-5">
-                  <h2 className="bg-[#40282C] rounded-md lg:w-36 lg:h-36 w-24 h-16 text-white flex items-center justify-center ">
-                    <span className=" flex items-center justify-center  lg:w-32 lg:h-32 w-24 h-16 rounded border-2 border-dashed text-[#FBC531]">
-                      {slide.date}
-                    </span>
-                  </h2>
-                  <p className="text-[24px] font-[500] py-3"> {slide.title}</p>
-                  <p className="text-[#999]">{slide.description}</p>
-                </div>
-              </SwiperSlide>
-            </>
-          );
-        })}
-      </Swiper> */}
       <Splide
         className="sidebarSlider"
         options={{

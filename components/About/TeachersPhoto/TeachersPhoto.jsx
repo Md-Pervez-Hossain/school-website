@@ -26,7 +26,7 @@ const TeachersPhoto = () => {
     fetPhotos();
   }, [page, query]);
   return (
-    <Container>
+    <>
       <div id="PhotoGallary" className=" lg:my-16 my-5">
         {teachePhotos?.data?.length > 0 && (
           <Title className="text-center">Teachers Photo Gallery</Title>
@@ -59,7 +59,7 @@ const TeachersPhoto = () => {
           setPageCount={setPageCount}
         />
       </div>
-    </Container>
+    </>
   );
 };
 

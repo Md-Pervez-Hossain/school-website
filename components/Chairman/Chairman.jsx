@@ -7,17 +7,17 @@ import Paragraph from "../ui/Paragraph";
 
 const Chairman = ({ chairmanData }) => {
   return (
-    <div className=" grid lg:grid-cols-2 gap-10 lg:my-16 my-5 items-center">
+    <div className=" flex items-center flex-wrap lg:flex-nowrap  gap-10 lg:my-16 my-5 ">
       <div className=" overflow-hidden group rounded-md">
         <Image
-          width={1000}
+          width={2000}
           height={1000}
           alt=""
           src={chairmanData?.image}
-          className="imageHover object-cover "
+          className="imageHover  "
         />
       </div>
-      <div>
+      <div className="grow">
         <div className="flex items-center justify-center md:justify-start">
           <Title>{chairmanData?.message_title}</Title>
         </div>

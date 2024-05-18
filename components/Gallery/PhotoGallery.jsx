@@ -9,10 +9,11 @@ import Pagination from "../Share/Pagination/Pagination";
 const PhotoGallery = () => {
   const [page, setPage] = useState(1);
   const [photos, setPhotos] = useState({});
+  console.log(photos);
   const [pageCount, setPageCount] = useState(0);
   const query = `page=${page}&limit=10`;
   useEffect(() => {
-    const fetPhotos = async () => {
+    const fetchPhotos = async () => {
       try {
         const photos = await fetchPhotosData(query);
         setPhotos(photos);
@@ -20,7 +21,7 @@ const PhotoGallery = () => {
         console.log(error);
       }
     };
-    fetPhotos();
+    fetchPhotos();
   }, [page, query]);
   return (
     <div id="PhotoGallary" className=" lg:my-16 my-5">

@@ -2,10 +2,6 @@ import { Inter } from 'next/font/google'
 import '@splidejs/react-splide/css';
 import './globals.css'
 
-
-
-import Header from '@/components/Header/Header'
-import HeroBanner from '@/components/HeroBanner/HeroBanner'
 import Footer from '@/components/Footer/Footer'
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import NavigationMenu from '@/components/Header/NavigationMenu'
@@ -23,7 +19,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <NavigationMenu />
         <ResponsiveHeader />
-        <HeroBanner />
+
         {children}
         <Footer />
       </body>
