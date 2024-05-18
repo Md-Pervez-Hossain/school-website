@@ -20,12 +20,12 @@ const Information = ({ information }) => {
     <div className="lg:my-16 my-5 ">
       <Title className="text-center">Information</Title>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 ">
-        {information?.data?.length &&
+        {information?.data?.length > 0 &&
           information?.data?.map((info) => {
             return (
               <div
                 key={info?.id}
-                className="shadow-md rounded-md text-center py-8"
+                className=" rounded-md text-center py-8 border-2 border-gray-200"
               >
                 <Heading>{info?.title}</Heading>
                 <PrimaryButton

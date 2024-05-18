@@ -15,10 +15,11 @@ export default async function Home() {
   const shiftsInfo = await fetchShiftSection()
   const notice = await fetchNoticeInfo()
   const information = await fetchInformation()
-  const heroSection = await fetchHeroSection()
+
+
   return (
     <main>
-      <HeroBanner heroSection={heroSection} />
+
       <Container>
 
         <Chairman chairmanData={chairmanData} />

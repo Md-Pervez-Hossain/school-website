@@ -8,6 +8,7 @@ import Modal from "@/components/Share/Modal/Modal";
 import EventsDetails from "./EventsDetails";
 import Heading from "@/components/ui/Heading";
 import Link from "next/link";
+import Paragraph from "@/components/ui/Paragraph";
 const UpComingEvents = ({ eventsInfo }) => {
   const [detailsModalId, setDetailsModalId] = useState(null);
   return (
@@ -27,18 +28,25 @@ const UpComingEvents = ({ eventsInfo }) => {
                     height={1000}
                     alt=""
                     src={event?.image}
-                    className="imageHover object-cover w-[250px] h-[250px] mb-3 "
+                    className="imageHover object-cover w-full h-[250px] mb-3 "
                   />
                 </div>
                 <div>
                   <Heading>{event?.title}</Heading>
+                  <Paragraph>
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: `${event?.description.slice(0, 100)} ...`,
+                      }}
+                    />
+                  </Paragraph>
                   <p className="mb-2">
                     <span className="font-[500]"> Date : </span>
                     {dayjs(event?.date).format("DD MMM YYYY")}
                   </p>
                   <PrimaryButton
                     onClick={() => setDetailsModalId(event)}
-                    className="border-2 border-white"
+                    className="border-2 border-white mt-2"
                   >
                     Details
                   </PrimaryButton>
