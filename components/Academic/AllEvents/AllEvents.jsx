@@ -29,7 +29,7 @@ const AllEvents = ({ eventsInfo }) => {
                       height={1000}
                       alt=""
                       src={event?.image}
-                      className="imageHover object-cover w-[250px] h-[250px] mb-3 "
+                      className="imageHover object-cover w-full h-[250px] mb-3 "
                     />
                   </div>
                   <div>

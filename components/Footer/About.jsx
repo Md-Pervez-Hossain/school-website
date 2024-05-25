@@ -7,7 +7,9 @@ import Heading from "../ui/Heading";
 const About = ({ aboutInfo }) => {
   return (
     <div>
-      <Heading>{aboutInfo?.title}</Heading>
+      <Heading className="text-center lg:text-start ">
+        {aboutInfo?.title}
+      </Heading>
       <Paragraph className="text-center lg:text-start text-grayText">
         {aboutInfo?.description}
       </Paragraph>

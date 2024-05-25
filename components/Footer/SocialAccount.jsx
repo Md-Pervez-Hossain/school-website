@@ -9,7 +9,7 @@ const SocialAccount = ({ socialInfo }) => {
       <h2 className="text-[18px] font-[600] mb-3 text-center lg:flex ">
         Contact info
       </h2>
-      <div className=" flex items-center gap-3">
+      <div className=" flex items-center justify-center md:justify-start gap-3">
         {socialInfo?.data?.length > 0 &&
           socialInfo?.data?.map((socialInfo) => {
             return (

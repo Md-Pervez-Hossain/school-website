@@ -46,7 +46,7 @@ const TeachersPhoto = () => {
                     width={300}
                     height={300}
                     objectFit="cover"
-                    className="imageHover "
+                    className="imageHover w-full "
                   />
                 </div>
               );
