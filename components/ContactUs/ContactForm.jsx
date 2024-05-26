@@ -1,16 +1,27 @@
 "use client";
-import React from "react";
+import React, { useTransition } from "react";
 import { useForm } from "react-hook-form";
 import PrimaryButton from "../Share/Button/PrimaryButton";
+import { postContact } from "@/lib/fetchData";
+import toast from "react-hot-toast";
 
 const ContactForm = () => {
+  const [isLoading, startTransition] = useTransition();
+
   const {
     register,
     handleSubmit,
-    formState: { errors, isLoading },
+    reset,
+    formState: { errors },
   } = useForm({});
   const handleContact = (values) => {
-    console.log(values);
+    startTransition(async () => {
+      const res = await postContact(values);
+      if (res?.message) {
+        reset();
+        toast.success(res?.message);
+      }
+    });
   };
   return (
     <div className="border border-gray-300 lg:p-8 p-4 rounded-lg">
@@ -34,11 +45,11 @@ const ContactForm = () => {
               Phone Number
             </label>
             <input
-              {...register("phone_number", { required: true })}
+              {...register("phone", { required: true })}
               placeholder="Enter Phone Number"
               className="border border-gray-300 px-4 py-3 rounded-lg"
             />
-            {errors.phone_number && (
+            {errors.phone && (
               <p className="text-[#40282C]">This Field is Required</p>
             )}
           </div>
@@ -85,7 +96,9 @@ const ContactForm = () => {
           )}
         </div>
         <div className="flex items-center justify-center">
-          <PrimaryButton>Submit Message</PrimaryButton>
+          <PrimaryButton>
+            {isLoading ? <p>Processing</p> : <p>Submit Message</p>}{" "}
+          </PrimaryButton>
         </div>
       </form>
     </div>

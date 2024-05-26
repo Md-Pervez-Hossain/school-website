@@ -7,30 +7,6 @@ import "./Slider.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 
 const Slider = ({ notice }) => {
-  const sliderArray = [
-    {
-      id: 1,
-      title: "Eid ul - Adha",
-      date: "11 / 16 / 2023",
-      description:
-        "In Bangladesh, Eid ul-Adha is a public holiday, commemorating the test of faith passed by Ibrahim according to the Koran.",
-    },
-    {
-      id: 2,
-      title: "Eid ul - Fitor",
-      date: " 12 / 20 / 2023",
-      description:
-        "In Bangladesh, Eid ul-Adha is a public holiday, commemorating the test of faith passed by Ibrahim according to the Koran.",
-    },
-    {
-      id: 2,
-      title: "Summer 2024",
-      date: "9 / 25 / 2024",
-      description:
-        "In Bangladesh, Eid ul-Adha is a public holiday, commemorating the test of faith passed by Ibrahim according to the Koran.",
-    },
-  ];
-
   return (
     <div className=" z-0">
       <Splide
@@ -51,7 +27,7 @@ const Slider = ({ notice }) => {
         }}
         aria-label="My Favorite Images"
       >
-        {notice?.length &&
+        {notice?.length > 0 &&
           notice?.map((slide) => (
             <SplideSlide key={slide?.id}>
               <div className="text-center lg:px-16 flex flex-col justify-center items-center bg-white rounded-lg shadow-md lg:py-24 py-5">

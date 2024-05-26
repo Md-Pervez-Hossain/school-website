@@ -8,6 +8,7 @@ import NavigationMenu from '@/components/Header/NavigationMenu'
 import ResponsiveHeader from '@/components/Header/ResponsiveHeader'
 import HeroBanner from '@/components/HeroBanner/HeroBanner';
 import { fetchHeroSection } from '@/lib/fetchData';
+import { Toaster } from 'react-hot-toast';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,6 +25,10 @@ export default async function RootLayout({ children }) {
         <NavigationMenu />
         <ResponsiveHeader />
         <HeroBanner heroSection={heroSection} />
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+        />
         {children}
         <Footer />
       </body>
