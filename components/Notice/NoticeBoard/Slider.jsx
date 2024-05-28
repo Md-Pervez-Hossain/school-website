@@ -1,12 +1,16 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "./Slider.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
+import Modal from "@/components/Share/Modal/Modal";
+import NoticeDetails from "./NoticeDetails";
 
 const Slider = ({ notice }) => {
+  const [detailsModalId, setDetailsModalId] = useState(null);
+
   return (
     <div className=" z-0">
       <Splide
@@ -36,12 +40,38 @@ const Slider = ({ notice }) => {
                     {slide.date}
                   </span>
                 </h2>
-                <p className="text-[24px] font-[500] py-3"> {slide.title}</p>
-                <div dangerouslySetInnerHTML={{ __html: slide.description }} />
+                <p className="text-[24px] font-[500] pt-3"> {slide.title}</p>
+                {slide.description && (
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: `${slide.description.slice(0, 150)}...`,
+                    }}
+                    className="px-5 mt-5"
+                  />
+                )}
+
+                <button
+                  onClick={() => setDetailsModalId(slide)}
+                  className="  mt-3 px-4 py-2 border-2 border-primary rounded-md"
+                >
+                  Details
+                </button>
               </div>
             </SplideSlide>
           ))}
       </Splide>
+      {detailsModalId && (
+        <Modal
+          isOpen={detailsModalId !== null}
+          closeModal={() => setDetailsModalId(null)}
+          title="Notice Details"
+        >
+          <NoticeDetails
+            data={detailsModalId}
+            closeModal={() => setDetailsModalId(null)}
+          />
+        </Modal>
+      )}
     </div>
   );
 };

@@ -16,6 +16,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "dayjs": "^1.11.10",
+    "framer-motion": "^11.2.6",
     "hooks-crafter": "^1.0.4",
     "lucide-react": "^0.292.0",
     "moment": "^2.29.4",
