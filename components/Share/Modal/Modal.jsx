@@ -1,16 +1,46 @@
 import { useClickAway } from "@uidotdev/usehooks";
+import { motion, AnimatePresence } from "framer-motion";
+
 const Modal = ({ isOpen, closeModal, children, title }) => {
   const modalRef = useClickAway(() => {
     closeModal();
   });
 
+  const modalVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0,
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+    // exit: {
+    //   opacity: 0,
+    //   scale: 0.75,
+    //   transition: {
+    //     duration: 0.3,
+    //   },
+    // },
+  };
+
   return (
-    <>
+    <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/50 ">
-          <div
-            ref={modalRef}
-            className="w-[90%] min-w-[300px] max-w-5xl  bg-white text-black rounded-lg z-[60]  modal-content transition-transform transform scale-100 mx-auto max-h-[80vh] overflow-y-auto"
+        <motion.div
+          ref={modalRef}
+          variants={modalVariants}
+          initial="hidden"
+          animate="visible"
+          // exit="exit"
+          className="fixed inset-0 flex items-center justify-center z-50 bg-black/50"
+        >
+          <motion.div
+            className="w-[90%] min-w-[300px] max-w-5xl bg-white text-black rounded-lg z-[60] modal-content  mx-auto max-h-[80vh] overflow-y-auto"
+            variants={modalVariants}
           >
             <div className="flex justify-between bg-[#F1F3F7] p-5">
               <h2 className="text-[18px] font-[500]">{title}</h2>
@@ -40,10 +70,10 @@ const Modal = ({ isOpen, closeModal, children, title }) => {
               </button>
             </div>
             {children}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       )}
-    </>
+    </AnimatePresence>
   );
 };
 

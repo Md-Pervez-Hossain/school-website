@@ -1,13 +1,15 @@
 "use client";
-import React, { useTransition } from "react";
+import React, { useRef, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import PrimaryButton from "../Share/Button/PrimaryButton";
 import { postContact } from "@/lib/fetchData";
 import toast from "react-hot-toast";
+import { motion, useInView } from "framer-motion";
 
 const ContactForm = () => {
   const [isLoading, startTransition] = useTransition();
-
+  const ref = useRef();
+  const inView = useInView(ref, { triggerOnce: false });
   const {
     register,
     handleSubmit,
@@ -24,7 +26,23 @@ const ContactForm = () => {
     });
   };
   return (
-    <div className="border border-gray-300 lg:p-8 p-4 rounded-lg">
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, x: -300 }}
+      animate={
+        inView
+          ? {
+              opacity: 1,
+              x: 0,
+              transition: {
+                duration: 1,
+                delay: 0.5,
+              },
+            }
+          : { opacity: 0, x: -300 }
+      }
+      className="border border-gray-300 lg:p-8 p-4 rounded-lg"
+    >
       <form onSubmit={handleSubmit(handleContact)}>
         <div className="grid md:grid-cols-2 gap-5">
           <div className="flex flex-col">
@@ -101,7 +119,7 @@ const ContactForm = () => {
           </PrimaryButton>
         </div>
       </form>
-    </div>
+    </motion.div>
   );
 };
 

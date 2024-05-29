@@ -1,12 +1,46 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useRef } from "react";
 import PrimaryButton from "../Share/Button/PrimaryButton";
 import Title from "../ui/Title";
 import Paragraph from "../ui/Paragraph";
-
+import { useInView } from "framer-motion";
+import { motion } from "framer-motion";
 const Admission = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+  const parentVariant = {
+    hidden: { opacity: 0, y: -50, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.7,
+        // staggerChildren: 0.25,
+        // delayChildren: 0.5,
+      },
+    },
+  };
+
+  const childVariant = {
+    hidden: { opacity: 0, y: -50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
   return (
-    <div className="   bg-[#40282C] rounded-lg lg:my-16 my-5">
+    <motion.div
+      ref={ref}
+      variants={parentVariant}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      className="bg-[#40282C] rounded-lg lg:my-16 my-5"
+    >
       <div className="text-center lg:p-16 px-5 py-10 text-white">
         <Title>Admission</Title>
         <Paragraph className="mb-5 text-grayText">
@@ -20,7 +54,7 @@ const Admission = () => {
           </PrimaryButton>
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
