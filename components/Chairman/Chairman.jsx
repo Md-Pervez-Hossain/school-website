@@ -17,9 +17,9 @@ const Chairman = ({ chairmanData }) => {
     visible: {
       opacity: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.3,
         staggerChildren: 0.25,
-        delayChildren: 0.5,
+        delayChildren: 0.3,
       },
     },
   };
@@ -48,7 +48,7 @@ const Chairman = ({ chairmanData }) => {
   };
 
   return (
-    <motion.div className="grid grid-cols-3 items-center  gap-10 lg:my-16 my-5">
+    <motion.div className="grid lg:grid-cols-3 items-center  gap-10 lg:my-16 my-5">
       <motion.div
         variants={imageVariant}
         ref={imageRef}
@@ -61,7 +61,7 @@ const Chairman = ({ chairmanData }) => {
           height={1000}
           alt=""
           src={chairmanData?.image}
-          className="imageHover w-full col-span-1"
+          className="imageHover w-full lg:col-span-1"
         />
       </motion.div>
       <motion.div
@@ -69,7 +69,7 @@ const Chairman = ({ chairmanData }) => {
         ref={textRef}
         initial="hidden"
         animate={textInView ? "visible" : "hidden"}
-        className="col-span-2"
+        className="lg:col-span-2"
       >
         <motion.div
           variants={childVariant}

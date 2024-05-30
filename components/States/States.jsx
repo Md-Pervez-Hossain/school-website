@@ -1,16 +1,36 @@
 "use client";
 import Image from "next/image";
-import stateBg from "../../assets/state-bg.png";
 import "./States.css";
 import teacherImage from "../../assets/teacher.svg";
 import ScrollTrigger from "react-scroll-trigger";
 import CountUp from "react-countup";
-import { useState } from "react";
-import Container from "../ui/Container";
+import { useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+
 const States = () => {
   const [counterStage, setCounterStage] = useState(false);
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+  const parentVariant = {
+    hidden: { opacity: 0, y: -50, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.7,
+        // staggerChildren: 0.25,
+        // delayChildren: 0.5,
+      },
+    },
+  };
   return (
-    <>
+    <motion.div
+      ref={ref}
+      variants={parentVariant}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+    >
       <ScrollTrigger
         onEnter={() => setCounterStage(true)}
         onExit={() => setCounterStage(false)}
@@ -88,7 +108,7 @@ const States = () => {
           </div>
         </div>
       </ScrollTrigger>
-    </>
+    </motion.div>
   );
 };
 

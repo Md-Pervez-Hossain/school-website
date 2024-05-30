@@ -1,12 +1,11 @@
-import React from 'react';
-import PhotoGallery from '../Gallery/PhotoGallery';
-import VideoGallary from '../Gallery/VideoGallary';
+import React from "react";
+import PhotoGallery from "../Gallery/PhotoGallery";
 
 const Campus = () => {
   return (
     <div>
       <PhotoGallery />
-      <VideoGallary />
+      {/* <VideoGallary /> */}
     </div>
   );
 };

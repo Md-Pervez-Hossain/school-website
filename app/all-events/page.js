@@ -1,14 +1,13 @@
-import AllEvents from '@/components/Academic/AllEvents/AllEvents';
-import { fetchEventsSection } from '@/lib/fetchData';
+import Container from '@/components/ui/Container';
+import Title from '@/components/ui/Title';
 import React from 'react';
 
-const AllEventPage = async () => {
-  const eventsInfo = await fetchEventsSection();
+const allEventsPage = () => {
   return (
-    <div>
-      <AllEvents eventsInfo={eventsInfo} />
-    </div>
+    <Container>
+      <Title>All Events Page </Title>
+    </Container>
   );
 };
 
-export default AllEventPage;
+export default allEventsPage;
