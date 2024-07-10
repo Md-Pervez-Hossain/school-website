@@ -21,7 +21,6 @@ export default async function Home() {
     <main>
 
       <Container>
-
         <Chairman chairmanData={chairmanData} />
         <States />
         <Information information={information} />
