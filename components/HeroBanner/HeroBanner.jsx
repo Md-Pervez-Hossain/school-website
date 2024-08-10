@@ -7,6 +7,7 @@ import { motion, useInView } from "framer-motion";
 import Container from "../ui/Container";
 
 const HeroBanner = ({ heroSection }) => {
+  console.log(heroSection);
   const ref = useRef();
   const inView = useInView(ref);
   const contentVarient = {
@@ -27,7 +28,7 @@ const HeroBanner = ({ heroSection }) => {
         width={1000}
         height={1000}
         alt=""
-        src={heroSection?.image}
+        src={heroSection?.image && heroSection?.image}
         className="w-full object-cover h-[590px] lg:h-auto"
       />
       <Container>
@@ -46,7 +47,7 @@ const HeroBanner = ({ heroSection }) => {
               {heroSection?.description}
             </motion.p>
             <motion.div>
-              <Link href={heroSection?.btn_link}>
+              <Link href={heroSection?.btn_link ? heroSection?.btn_link : "/"}>
                 <PrimaryButton className="mt-5 border-2 border-white">
                   {heroSection?.btn_title}
                 </PrimaryButton>
