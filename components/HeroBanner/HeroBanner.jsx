@@ -7,6 +7,7 @@ import { motion, useInView } from "framer-motion";
 import Container from "../ui/Container";
 
 const HeroBanner = ({ heroSection }) => {
+  console.log(heroSection);
   const ref = useRef();
   const inView = useInView(ref);
   const contentVarient = {

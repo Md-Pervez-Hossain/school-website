@@ -8,21 +8,6 @@ import { fetchPhotosData } from "@/lib/fetchData";
 import Pagination from "../Share/Pagination/Pagination";
 import { motion, useInView } from "framer-motion";
 const PhotoGallery = () => {
-  const globalVar = "i am global var";
-  function test() {
-    const a = "i am test fnction";
-    console.log(a);
-    console.log(globalVar);
-    function testTwo() {
-      const b = " i am test two function variable";
-      console.log(a);
-      console.log(b);
-      console.log(globalVar);
-    }
-    testTwo();
-  }
-  console.log(test);
-
   const [page, setPage] = useState(1);
   const [photos, setPhotos] = useState({});
   const ref = useRef(null);
