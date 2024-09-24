@@ -33,7 +33,7 @@ const HeroBanner = ({ heroSection }) => {
             src={heroSection?.image}
             className="w-full object-cover h-[590px] lg:h-auto"
           /> */}
-          <Container>
+          {/* <Container>
             <motion.div
               ref={ref}
               variants={contentVarient}
@@ -57,7 +57,7 @@ const HeroBanner = ({ heroSection }) => {
                 </motion.div>
               </div>
             </motion.div>
-          </Container>
+          </Container> */}
         </div>
       )}
     </>
