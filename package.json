@@ -13,6 +13,7 @@
     "@reduxjs/toolkit": "^2.2.0",
     "@splidejs/react-splide": "^0.7.12",
     "@uidotdev/usehooks": "^2.4.1",
+    "caniuse-lite": "^1.0.30001651",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "dayjs": "^1.11.10",
