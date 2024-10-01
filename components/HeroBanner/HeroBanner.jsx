@@ -26,14 +26,14 @@ const HeroBanner = ({ heroSection }) => {
     <>
       {heroSection?.image && (
         <div className="relative">
-          {/* <Image
+          <Image
             width={1000}
             height={1000}
             alt=""
             src={heroSection?.image}
-            className="w-full object-cover h-[590px] lg:h-auto"
-          /> */}
-          {/* <Container>
+            className="w-full  object-cover  h-[590px] "
+          />
+          <Container>
             <motion.div
               ref={ref}
               variants={contentVarient}
@@ -57,7 +57,7 @@ const HeroBanner = ({ heroSection }) => {
                 </motion.div>
               </div>
             </motion.div>
-          </Container> */}
+          </Container>
         </div>
       )}
     </>
